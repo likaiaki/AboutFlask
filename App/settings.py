@@ -1,11 +1,11 @@
 import logging
 import os
-
 from redis import StrictRedis
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    SECRET_KEY = "/OC1aG5EBPwK+SlVQfEq9BPkSjinoqnWciF6UrZCr+1APfC/7lNHTj4dqHqQLn5a"
+    LOG_LEVEL = logging.ERROR
 
 
 class DevelopmentConfig(Config):
@@ -25,7 +25,9 @@ class DevelopmentConfig(Config):
     # 指定 Session 保存的 redis
     SESSION_REDIS = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)
     # 设置过期时间
-    PERMANENT_SESSION_LIFETIME = 86400 * 2
+    PERMANENT_SESSION_LIFETIME = 86400
+    # 开发环境设置日志等级为errio
+    LOG_LEVEL = logging.ERROR
 
 
 class TestingConfig(Config):
