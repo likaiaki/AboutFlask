@@ -24,6 +24,8 @@ class DevelopmentConfig(Config):
     SESSION_USE_SIGNER = True
     # 指定 Session 保存的 redis
     SESSION_REDIS = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)
+    # redis
+    # REDIS_STORE = StrictRedis(host=REDIS_HOST, port=REDIS_PORT, db=1)
     # 设置过期时间
     PERMANENT_SESSION_LIFETIME = 86400
     # 开发环境设置日志等级为errio

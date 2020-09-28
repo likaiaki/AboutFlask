@@ -13,8 +13,6 @@ manager.add_command('db', MigrateCommand)
 
 @app.route("/")
 def index():
-    # logging.debug("测试d")
-    # app.logger.error("disaiids")
     return "index"
 
 

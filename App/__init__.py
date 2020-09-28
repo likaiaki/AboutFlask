@@ -4,7 +4,9 @@ from flask import Flask
 from App.ext import init_ext
 from App.modules.user import user
 from App.settings import envs
+from redis import StrictRedis
 # import App.settings
+redis_store = None  # type: StrictRedis
 
 
 def setup_log(config_name):
@@ -27,7 +29,8 @@ def create_app(env):
     app = Flask(__name__)
     app.config.from_object(config_name)
     init_ext(app)
+    global redis_store
+    redis_store = StrictRedis(host=config_name.REDIS_HOST, port=config_name.REDIS_PORT, decode_responses=True, db=3)
     app.register_blueprint(user, url_prefix="/user")
     return app
-
 
