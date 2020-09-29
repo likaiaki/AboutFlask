@@ -2,10 +2,12 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask
 from App.ext import init_ext
+from App.modules.index import index_bul
 from App.modules.user import user
 from App.settings import envs
 from redis import StrictRedis
 # import App.settings
+
 redis_store = None  # type: StrictRedis
 
 
@@ -32,5 +34,6 @@ def create_app(env):
     global redis_store
     redis_store = StrictRedis(host=config_name.REDIS_HOST, port=config_name.REDIS_PORT, decode_responses=True, db=3)
     app.register_blueprint(user, url_prefix="/user")
+    app.register_blueprint(index_bul)
     return app
 
