@@ -1,6 +1,5 @@
 # import logging
 import os
-
 from flask_migrate import MigrateCommand
 from flask_script import Manager
 from App import create_app, models
@@ -14,7 +13,6 @@ manager.add_command('db', MigrateCommand)
 @app.route("/")
 def index():
     return "index"
-
 
 if __name__ == '__main__':
     manager.run()
