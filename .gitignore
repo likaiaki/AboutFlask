@@ -1,4 +1,5 @@
 .idea/
 migrations
 logs/log*
-App/static/*
+App/static/news/*
+App/static/admin/*
