@@ -7,3 +7,4 @@ import logging
 def hello():
     session["name"] = "哈哈哈"
     return "hello"
+
